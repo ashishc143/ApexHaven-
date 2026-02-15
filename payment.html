@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ApexHaven | Payment</title>
+    <style>
+        body{
+            margin:0;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align:center;
+        }
+        nav{
+            background:black;
+            color:white;
+            padding:15px 40px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin-left:20px;
+        }
+        .box{
+            margin:40px auto;
+            width:320px;
+            border:1px solid #ccc;
+            padding:20px;
+        }
+        button{
+            background:black;
+            color:white;
+            padding:10px;
+            border:none;
+            cursor:pointer;
+            width:100%;
+            margin-top:10px;
+        }
+        footer{
+            background:black;
+            color:white;
+            text-align:center;
+            padding:15px;
+            margin-top:20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h2>ApexHaven</h2>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="rooms.html">Rooms</a>
+        </div>
+    </nav>
+
+    <div class="box">
+        <h2>Payment</h2>
+
+        <p><strong>Room:</strong> <span id="room"></span></p>
+        <p><strong>Nights:</strong> <span id="nights"></span></p>
+        <p><strong>Total Amount:</strong> ₹<span id="amount"></span></p>
+
+        <button onclick="payNow()">Pay Now</button>
+        <button onclick="payLater()">Pay at Hotel</button>
+    </div>
+
+    <footer>
+        <p>© 2026 ApexHaven. All Rights Reserved.</p>
+    </footer>
+
+<script>
+document.getElementById("room").innerText = localStorage.getItem("roomName");
+document.getElementById("nights").innerText = localStorage.getItem("totalNights");
+document.getElementById("amount").innerText = localStorage.getItem("totalAmount");
+
+function generateBookingID(){
+    return "AH" + Math.floor(Math.random()*100000);
+}
+
+function payNow(){
+    localStorage.setItem("bookingID", generateBookingID());
+    localStorage.setItem("paymentStatus", "Paid Online");
+    window.location.href = "success.html";
+}
+
+function payLater(){
+    localStorage.setItem("bookingID", generateBookingID());
+    localStorage.setItem("paymentStatus", "Pay at Hotel");
+    window.location.href = "success.html";
+}
+</script>
+
+</body>
+</html>

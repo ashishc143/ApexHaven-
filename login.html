@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ApexHaven | Login</title>
+  <style>
+    body{font-family:Arial;text-align:center;margin-top:50px;}
+    input{display:block;margin:10px auto;padding:8px;width:200px;}
+    button{padding:10px;background:black;color:white;border:none;}
+  </style>
+</head>
+<body>
+
+<h2>Login</h2>
+
+<input type="email" id="email" placeholder="Email">
+<input type="password" id="pass" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+<p>New user? <a href="register.html">Register</a></p>
+
+<script>
+function login(){
+  const saved = JSON.parse(localStorage.getItem("user"));
+
+  const email = document.getElementById("email").value;
+  const pass = document.getElementById("pass").value;
+
+  if(saved && email === saved.email && pass === saved.pass){
+    localStorage.setItem("loggedIn", "true");
+    localStorage.setItem("username", saved.name);
+    alert("Login Successful");
+    window.location.href = "index.html";
+  } else {
+    alert("Invalid Credentials");
+  }
+}
+</script>
+
+</body>
+</html>
