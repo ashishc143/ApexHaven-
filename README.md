@@ -1,31 +1,3 @@
-# ApexHaven
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>ApexHaven | Home</title>
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        body{
-            margin:0;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        nav{
-            background:black;
-            color:white;
-            padding:15px 40px;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-        }
-        nav a{
-            color:white;
-            text-decoration:none;
-            margin-left:20px;
-        }
-        .hero{
-            height:90vh;
-            background:url('https://images.unsplash.com/photo-1566073771259-6a8506099945') center/cover;
             display:flex;
             align-items:center;
             justify-content:center;
